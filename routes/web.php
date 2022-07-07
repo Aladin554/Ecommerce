@@ -162,4 +162,12 @@ Route::prefix('slider')->group(function(){
     //// Frontend Product Tags Page //////
 
     Route::get('/product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
+
+    Route::get('/subcategory/product/{subcat_id}/{slug}', [IndexController::class, 'SubCatWiseProduct']);
+
+    Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::class, 'SubSubCatWiseProduct']);
+
+
+    // Product View Modal with Ajax
+    Route::get('/product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']); 
     
