@@ -126,7 +126,7 @@
 </div><!-- /.gallery-holder -->        			
 					<div class='col-sm-6 col-md-7 product-info-block'>
 						<div class="product-info">
-							<h1 class="name">@if (session()->get('language')=='bangla'){{ $product->product_name_bn }} @else {{ $product->product_name_en }} @endif</h1>
+							<h1 class="name" id="pname">@if (session()->get('language')=='bangla'){{ $product->product_name_bn }} @else {{ $product->product_name_en }} @endif</h1>
 
 							<div class="rating-reviews m-t-20">
 								<div class="row">
@@ -212,7 +212,7 @@
 										<div class="form-group">
 
 											<label class="info-title control-label">Choose Color <span> </span></label>
-											<select class="form-control unicase-form-control selectpicker" style="display: none;">
+											<select class="form-control unicase-form-control selectpicker" style="display: none;" id="color">
 												<option selected="" disabled="">--Choose Color--</option>
 												@foreach($product_color_en as $color)
 												<option value="{{ $color }}">{{ ucwords($color) }}</option>
@@ -230,13 +230,19 @@
 
 										<div class="form-group">
 
+											@if($product->product_size_en == Null)
+
+											@else
+
 											<label class="info-title control-label">Choose Size <span> </span></label>
-											<select class="form-control unicase-form-control selectpicker" style="display: none;">
+											<select class="form-control unicase-form-control selectpicker" style="display: none;" id="size">
 												<option selected="" disabled="">--Choose Size--</option>
 												@foreach($product_size_en as $size)
 												<option value="{{ $size }}">{{ ucwords($size) }}</option>
 												 @endforeach
 											</select> 
+
+											@endif
 										
 										</div> <!-- // end form group -->
 										
@@ -270,8 +276,9 @@
 							            </div>
 									</div>
 
+									<input type="hidden" id="product_id" value="{{$product->id}}" min="1">
 									<div class="col-sm-7">
-										<a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+										<button type="submit" onclick="addToCart()"  class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
 									</div>
 
 
