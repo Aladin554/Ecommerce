@@ -6,14 +6,14 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li><a href="#"><i class="icon fa fa-user"></i>@if (session()->get('language')=='bangla')আমার অ্যাকাউন্ট @else My Account @endif</a></li>
-            <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+            {{-- <li><a href="#"><i class="icon fa fa-user"></i>@if (session()->get('language')=='bangla')আমার অ্যাকাউন্ট @else My Account @endif</a></li>
+            <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li> --}}
             <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="{{ route('checkout') }}"><i class="icon fa fa-check"></i>Checkout</a></li>
             @auth
-            <a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i>User Profile</a>
+            <a href="{{route('dashboard')}}" style="color: white"><i class="icon fa fa-user"></i>User Profile</a>
                 @else
-                <a href="{{route('login')}}"><i class="icon fa fa-lock"></i>Login/Register</a>
+                <a href="{{route('login')}}" style="color: white"><i class="icon fa fa-lock"></i>Login/Register</a>
             @endauth
             
           </ul>
@@ -57,18 +57,18 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
           <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="{{url('/')}}"> <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo"> </a> </div>
+          <div class="logo"> <a style="color: azure" href="{{url('/')}}"> <img src="{{ asset('frontend/assets/images/logo12.PNG') }}"> </a> </div>
           <!-- /.logo --> 
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
         
-        <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
+        <div class="col-xs-7 col-sm-7 col-md-7 top-search-holder"> 
           <!-- /.contact-row --> 
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
             <form>
               <div class="control-group">
-                <ul class="categories-filter animate-dropdown">
+                {{-- <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu" >
                       <li class="menu-header">Computer</li>
@@ -78,7 +78,7 @@
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
                     </ul>
                   </li>
-                </ul>
+                </ul> --}}
                 <input class="search-field" placeholder="Search here..." />
                 <a class="search-button" href="#" ></a> </div>
             </form>
@@ -87,7 +87,7 @@
           <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
         <!-- /.top-search-holder -->
         
-        <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
+        <div class="col-xs-4 col-sm-4 col-md-2 animate-dropdown top-cart-row"> 
           <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
           
           <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
@@ -140,7 +140,7 @@
                   <div class="pull-right"> <span class="text">Sub Total :</span>
                     <span class='price'  id="cartSubTotal"> </span> </div>
                   <div class="clearfix"></div>
-                  <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
+                  <a href="{{ route('checkout') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
                 <!-- /.cart-total--> 
                 
               </li>

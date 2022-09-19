@@ -797,6 +797,7 @@ $('select[name="district_id"]').on('change', function(){
 
   });
   </script>
- 
+
+
 </body>
 </html>

@@ -19,10 +19,7 @@
 <div class="col-md-6 col-sm-6 sign-in">
 	<h4 class="">Sign in</h4>
 	<p class="">Hello, Welcome to your account.</p>
-	<div class="social-sign-in outer-top-xs">
-		<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
-		<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
-	</div>
+	
 	<form method="POST" action="{{isset($guard) ? url($guard.'/login'): route('login') }}">
         @csrf
 		<div class="form-group">
@@ -39,6 +36,16 @@
 		  	</label>
 		  	<a href="{{ route('password.request') }}" class="forgot-password pull-right">Forgot your Password?</a>
 		</div>
+
+		<div class="form-group row">
+			<div class="col-md-12 offdet-md-4">
+				<p>Login with:</p>
+			<a href="#" class="btn btn-success"><i class="fa fa-facebook"></i> Google</a>
+			<a href="#" class="btn btn-success"><i class="fa fa-twitter"></i> Github</a>
+			<a href="#" class="btn btn-success"><i class="fa fa-facebook"></i> Facebook</a>
+			<a href="#" class="btn btn-success"><i class="fa fa-twitter"></i> Twitter</a>
+		</div>
+	</div>
 	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
 	</form>					
 </div>

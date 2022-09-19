@@ -4,14 +4,14 @@
   <div class="container">
     <div class="row"> 
       <!-- ============================================== SIDEBAR ============================================== -->
-      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+      {{-- <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
         
         <!-- ================================== TOP NAVIGATION ================================== -->
 
 
 
 
-        @include('frontend.tag.vertical')
+        {{-- @include('frontend.tag.vertical')
         
         
         
@@ -171,9 +171,9 @@
           <!-- /.sidebar-widget-body --> 
         </div>
         <!-- /.sidebar-widget --> 
-        <!-- ============================================== NEWSLETTER: END ============================================== --> 
+        <!-- ============================================== NEWSLETTER: END ============================================== -->  --}}
         
-        <!-- ============================================== Testimonials============================================== -->
+        {{-- <!-- ============================================== Testimonials============================================== -->
         <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
           <div id="advertisement" class="advertisement">
             <div class="item">
@@ -204,18 +204,19 @@
         </div>
         
         <!-- ============================================== Testimonials: END ============================================== -->
-        
-        <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image"> </div>
-      </div>
+         --}}
+        {{-- <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image"> </div> --}}
+      {{-- </div>  --}}
       <!-- /.sidemenu-holder --> 
       <!-- ============================================== SIDEBAR : END ============================================== --> 
       
       <!-- ============================================== CONTENT ============================================== -->
-      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+      <div > 
         <!-- ========================================== SECTION – HERO ========================================= -->
-        @foreach($sliders as $slider)
+        
         <div id="hero">
-          <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+          <div id="owl-main" class="banner">
+            @foreach($sliders as $slider)
             <div class="item" style="background-image: url({{ asset($slider->slider_img) }});">
               <div class="container-fluid">
                 <div class="caption bg-color vertical-center text-left">
@@ -232,16 +233,16 @@
             
            
             <!-- /.item --> 
-            
+            @endforeach
           </div>
           <!-- /.owl-carousel --> 
         </div>
-        @endforeach
+        
         
         <!-- ========================================= SECTION – HERO : END ========================================= --> 
         
         <!-- ============================================== INFO BOXES ============================================== -->
-        <div class="info-boxes wow fadeInUp">
+        {{-- <div class="info-boxes wow fadeInUp">
           <div class="info-boxes-inner">
             <div class="row">
               <div class="col-md-6 col-sm-4 col-lg-4">
@@ -284,7 +285,7 @@
           </div>
           <!-- /.info-boxes-inner --> 
           
-        </div>
+        </div> --}}
         <!-- /.info-boxes --> 
         <!-- ============================================== INFO BOXES : END ============================================== --> 
         <!-- ============================================== SCROLL TABS ============================================== -->
@@ -303,13 +304,15 @@
           </div>
           
           <div class="tab-content outer-top-xs">
+            
             <div class="tab-pane in active" id="all">
               <div class="product-slider">
-                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >
 
                   @foreach($products as $product)
                   <div class="item item-carousel">
                     <div class="products">
+                     
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
@@ -361,7 +364,7 @@
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
-                      
+                    
                     </div>
                     <!-- /.products --> 
                   </div>
@@ -378,7 +381,7 @@
               <!-- /.product-slider --> 
             </div>
             <!-- /.tab-pane -->
-            
+          
             
 
 
@@ -386,7 +389,7 @@
 
             <div class="tab-pane" id="category{{$category->id}}">
               <div class="product-slider">
-                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" >
 
                   @php
                   $catwiseproduct=App\Models\Product::where('category_id',$category->id)->orderBy('id','DESC')->get();

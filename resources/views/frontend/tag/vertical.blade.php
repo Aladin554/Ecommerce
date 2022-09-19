@@ -1,4 +1,4 @@
-@php
+{{-- @php
 $categories = App\Models\Category::orderBy('category_name_en','ASC')->get();
 @endphp 
 
@@ -80,4 +80,4 @@ $categories = App\Models\Category::orderBy('category_name_en','ASC')->get();
           </nav>
           <!-- /.megamenu-horizontal --> 
         </div>
-        <!-- /.side-menu --> 
+        <!-- /.side-menu -->  --}}
